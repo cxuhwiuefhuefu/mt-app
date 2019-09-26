@@ -18,8 +18,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'default',
+      name: 'defaultPage',
       component: defaultPage,
+      redirect: '/index', // 重定向
       children: [{
         path: 's/:name',
         name: 'goods',
@@ -35,7 +36,7 @@ export default new Router({
       }]
     }, {
       path: '/blank',
-      name: 'blank',
+      name: 'blankPage',
       component: blankPage,
       children: [{
         path: 'register',

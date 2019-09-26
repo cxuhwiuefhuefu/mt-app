@@ -10,7 +10,6 @@
             <my-footer />
         </el-footer>
     </el-container>
-
 </template>
 <script>
 import myHeader from '@/components/header/index.vue'
@@ -31,5 +30,6 @@ export default {
 </script>
 
 <style lang="scss">
+    // 引入其他文件的语法 这是scss的语法
     @import '@/assets/css/public/layout.scss'
 </style>

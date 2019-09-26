@@ -1,14 +1,19 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
+// 引入element-ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
+// 引入公共的样式文件
 import '@/assets/css/main.css'
 import store from './store'
 // import axios from './axios';
-Vue.use(ElementUI)
+
+// 使用element-ui
+Vue.use(ElementUI) 
+
 Vue.config.productionTip = false
 Vue.directive('document-click', {
   bind (el, binding, vnode) {
