@@ -1,6 +1,6 @@
 .m-header{
   .m-header-searchbar {
-      // height: 157px;
+      // height: 157px;s
       padding: 20px 20px;
       background: #fff;
       align-items: start;
@@ -73,7 +73,6 @@
               margin-bottom: 3px;
               margin-top: 5px;
               cursor: pointer;
-
               &:hover {
                 background: #F8F8F8;
                 color: #31BBAC;
@@ -92,7 +91,6 @@
             }
           }
         }
-
         .suggest {
           width: 552px;
           overflow: hidden;
@@ -100,14 +98,12 @@
           line-height: 1;
           margin-top: 8px;
           height: 14px;
-
           a {
             color: #999;
             margin-right: 10px;
             margin-bottom: 3px;
             display: inline-block;
             font-size: 12px;
-
             &:hover {
               color: #31BBAC;
             }

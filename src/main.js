@@ -8,8 +8,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 // 引入公共的样式文件
 import '@/assets/css/main.css'
+
 import store from './store'
 // import axios from './axios';
+
+
+
 
 // 使用element-ui
 Vue.use(ElementUI) 

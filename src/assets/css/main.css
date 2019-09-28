@@ -38,7 +38,10 @@ footer{
   text-align: center;
 }
 
-a, a:hover, a:focus, a:visited{
+a, 
+a:hover, 
+a:focus, 
+a:visited{
   color: #41B883;
 }
 
@@ -47,9 +50,11 @@ a, a:hover, a:focus, a:visited{
   height: 218px;
 }
 
-.page-enter-active, .page-leave-active{
+.page-enter-active, 
+.page-leave-active{
   transition: opacity .5s
 }
-.page-enter, .page-leave-active{
+.page-enter, 
+.page-leave-active{
   opacity: 0
 }

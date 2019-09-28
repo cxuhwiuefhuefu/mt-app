@@ -1,8 +1,12 @@
-.el-header,.el-main,.el-footer{
+.el-header,
+.el-main,
+.el-footer{
     width: 1190px;
     margin: 0 auto;
     padding: 0;
-    overflow: unset;
+    overflow: unset; // 一个属性定义了unset值，如果该属性是默认继承属性，
+                     //     该值等同于inherit，如果该属性是非继承属性，
+                     //     该值等同于initial 
 }
 
 .el-header{
@@ -19,10 +23,10 @@
 .layout-default{
     -webkit-font-smoothing: antialiased;
     font-family: "-apple-system",
-    BlinkMacSystemFont,
-    Roboto,
-    "Helvetica Neue",
-    "MIcrosoft YaHei",
-    sans-serif !important;
+                 BlinkMacSystemFont,
+                 Roboto,
+                 "Helvetica Neue",
+                 "MIcrosoft YaHei",
+                 sans-serif !important;
     background-color: #F8F8F8;
 }

@@ -11,26 +11,35 @@
                               placeholder="搜索商家或地点" 
                               @focus="focusInput" 
                               @blur="blurInput" 
-                              @input="inputWord">
-                    </el-input>
-                    <el-button type="primary" icon="el-icon-search"></el-button>
+                              @input="inputWord" />
+                    <el-button type="primary" 
+                               icon="el-icon-search" />
                     
 
                     <dl class="hotPlace" v-if="isHotPlace">
                         <dt>热门搜索</dt>
                         <dd v-for="(item, index) in hotPlaceList" 
                             :key="item + '_'+ index">
-                            <router-link :to="{name: 'goods', params: {name: item}}">{{item}}</router-link>
+                            <router-link :to="{name: 'goods', params: {name: item}}">
+                                {{item}}
+                            </router-link>
                         </dd>
                     </dl>
                     <dl class="searchList" v-if="isSearchList">
-                        <dd v-for="(item, index) in searchList" :key="index">
-                            <router-link :to="{name: 'goods', params: {name: item}}">{{item}}</router-link>
+                        <dd v-for="(item, index) in searchList" 
+                            :key="index">
+                            <router-link :to="{name: 'goods', params: {name: item}}">
+                                {{item}}
+                            </router-link>
                         </dd>
                     </dl>
                 </div>
                 <p class="suggest">
-                    <router-link v-for="(item, index) in suggestList" :key="item + '~' + index" :to="{name: 'goods', params: {name: item}}">{{item}}</router-link>
+                    <router-link v-for="(item, index) in suggestList" 
+                                 :key="item + '~' + index" 
+                                 :to="{name: 'goods', params: {name: item}}">
+                                 {{item}}
+                    </router-link>
                     <!-- <router-link to="/">北京故宫博物院</router-link>
                     <router-link to="/"> 北京欢乐谷</router-link>
                     <router-link  to="/"> 尚隐·泉都市生活馆</router-link>
@@ -91,13 +100,11 @@ export default {
                     this.searchList = res.data.data.list.filter((item) => item.indexOf(this.searchWord) > -1);
                 }
             });
-
         }
     }
 }
 </script>
 
 <style lang="scss">
-    @import "@/assets/css/public/header/index.scss";
     @import "@/assets/css/public/header/search.scss";
 </style>
