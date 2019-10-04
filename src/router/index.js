@@ -22,7 +22,7 @@ export default new Router({
       component: defaultPage,
       redirect: '/index', // 重定向
       children: [{
-        path: 's/:name',
+        path: 's/:name', // ???
         name: 'goods',
         component: goodsList
       }, {

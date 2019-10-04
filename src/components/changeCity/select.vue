@@ -1,13 +1,22 @@
 <template>
-    <div :class="['choose-wrap', disabled?'disbaled-wrap':'']" @click="showWrapper" v-document-click="documentClick" >
+    <div :class="['choose-wrap', disabled?'disbaled-wrap':'']" 
+         @click="showWrapper" 
+         v-document-click="documentClick" >
         <div :class="['choose', chooseClass+'-choose']">
             <span>{{value}}</span>
             <i class="el-icon-caret-bottom"></i>
             <div :class="{'mt-content': true, 'active': showWrapperActive}">
                 <h2>{{title}}</h2>
                 <div class="wrapper">
-                    <div class="col" v-for="(col, index) in colList" :key="index">
-                        <span :class="{'mt-item': true, 'active': item == value}" v-for="(item, index) in col" :key="index" @click="changeValue(item)">{{item.name}}</span>
+                    <div class="col" 
+                         v-for="(col, index) in colList" 
+                         :key="index">
+                        <span :class="{'mt-item': true, 'active': item == value}" 
+                              v-for="(item, index) in col" 
+                              :key="index" 
+                              @click="changeValue(item)">
+                               {{item.name}}
+                        </span>
                     </div>
                 </div>
             </div>
@@ -44,7 +53,7 @@ export default {
             if (this.disabled) {
                 return false;
             }
-            e.stopPropagation();
+            e.stopPropagation(); // 阻止事件冒泡
             // this.showWrapperActive = true;
             this.$emit('change_active', true);
         },

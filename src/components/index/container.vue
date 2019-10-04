@@ -16,6 +16,7 @@
           <div class="cbody">
             <div class="title" :title="item.title">{{item.title}}</div>
             <div class="sub-title" :title="item.subTitle">{{item.subTitle}}</div>
+            
             <!-- <div class="price-info" v-if="item.price_info.current_price">
               <span class="current-price-wrapper">
                 <span class="price-symbol numfont">¥</span>
@@ -30,6 +31,7 @@
                     <span class="current-price numfont">抢光了</span>
                 </span>
             </div> -->
+            
             <div class="price-info">
                 <span class="current-price-wrapper">
                     <span class="price-symbol numfont">¥</span>
@@ -48,6 +50,32 @@ import api from '@/api/index.js'
 export default {
   data() {
     return {
+      list: [
+        {
+          image: "",
+          title: "",
+          sub_title: "",
+          price_info: {
+            current_price: "",
+            old_price: "",
+            avg_price: "",
+            units: ""
+          },
+          rentNum: "",
+          address: ""
+        },
+        {
+          image: "",
+          title: "",
+          sub_title: "",
+          price_info: {
+            current_price: "",
+            old_price: ""
+          },
+          address: ""
+        }
+      ],
+
       kind: "all",
       list: {}
     };

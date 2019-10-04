@@ -20,7 +20,8 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 Vue.directive('document-click', {
-  bind (el, binding, vnode) {
+  bind (el, binding, vnode) { // 当前绑定的dom元素, vue对象, 虚拟的节点
+    console.log(el, binding, vnode);
     document.addEventListener('click', binding.value, false)
   },
   inserted () {

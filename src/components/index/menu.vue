@@ -33,6 +33,33 @@ import api from '@/api/index.js'
 export default {
     data() {
         return {
+            menuList: [
+                {
+                    title: '美食',
+                    icon: 'food',
+                    children: [{
+                        title: '美食',
+                        children: ['代金券', '甜点饮品', '大锅自助']
+                    }]
+                },
+                {
+                    title: '外卖',
+                    icon: 'takeout',
+                    children: [{
+                        title: '美食',
+                        children: ['美团外卖']
+                    }]
+                },
+                {
+                    title: '酒店',
+                    icon: 'hotel',
+                    children: [{
+                        title: '酒店星级',
+                        children: ['经典型', '舒适性', '高档四星', '豪华五星']
+                    }]
+                }
+            ],
+
             curDetail: null,
             menuList: []
         }

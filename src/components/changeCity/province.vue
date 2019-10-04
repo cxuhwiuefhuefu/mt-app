@@ -8,7 +8,7 @@
       :value="province"
       :showWrapperActive="provinceActive"
       @change_active="changeProvinceActive"
-       @change="changeProvince"
+      @change="changeProvince"
     />
     <m-select
       :list="cityList"
@@ -90,6 +90,7 @@ export default {
         this.$router.push({name: 'index'})
     },
     remoteMethod(val) {
+        console.log(val); // 拿到这个值发给后端就行了 后端返回我一个列表
         // 请求后端接口
         console.log(document.cookie, localStorage)
     }

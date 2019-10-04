@@ -8,15 +8,7 @@
   </div>
 </template>
 
-<template>
-<div class="slide">
-    <el-carousel :interval="4000" type="card" height="240px">
-    <el-carousel-item v-for="item in imgList" :key="item.img">
-      <img :src="item.img" alt="">
-    </el-carousel-item>
-  </el-carousel>
-</div>
-</template>
+
 
 <script>
 export default {
