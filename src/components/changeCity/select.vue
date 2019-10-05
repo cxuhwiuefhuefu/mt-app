@@ -1,5 +1,5 @@
 <template>
-    <div :class="['choose-wrap', disabled?'disbaled-wrap':'']" 
+    <div :class="['choose-wrap', disabled ? 'disbaled-wrap' : '']" 
          @click="showWrapper" 
          v-document-click="documentClick" >
         <div :class="['choose', chooseClass+'-choose']">
@@ -30,17 +30,18 @@ export default {
         }
     },
     props: [
-        "list",
-        "title",
-        "value",
-        "showWrapperActive",
-        "disabled",
-        "chooseClass"
+        "list", // 下拉框数据的渲染
+        "title", // 下拉框内的表头名
+        "value", // 传输入框的默认值
+        "showWrapperActive", // 下拉框是显示与否
+        "disabled", // 输入框是否能被点击
+        "chooseClass" // 添加特殊类名
     ],
     computed: {
         colList: function () {
-            let col = Math.ceil(this.list.length / 12);
+            let col = Math.ceil(this.list.length / 12); // 多少列
             let result = [];
+            // console.log('================', this.list);
             for (var i = 0; i < col; i++) {
                 result.push(this.list.slice(i * 12, i * 12 + 12));
             }

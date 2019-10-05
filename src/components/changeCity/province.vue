@@ -1,36 +1,35 @@
 <template>
   <div>
     <span class="name">按省份选择:</span>
-    <m-select
-      :list="provinceList"
-      title="省份"
-      chooseClass="province"
-      :value="province"
-      :showWrapperActive="provinceActive"
-      @change_active="changeProvinceActive"
-      @change="changeProvince"
-    />
-    <m-select
-      :list="cityList"
-      title="城市"
-      :value="city"
-      chooseClass="city"
-      :showWrapperActive="cityActive"
-      @change_active="changeCityActive"
-      @change="changeCity"
-      :disabled="disabledCity"
-    />
+    <m-select :list="provinceList"
+              title="省份"
+              chooseClass="province"
+              :value="province"
+              :showWrapperActive="provinceActive"
+              @change_active="changeProvinceActive"
+              @change="changeProvince" />
+    <m-select :list="cityList"
+              title="城市"
+              :value="city"
+              chooseClass="city"
+              :showWrapperActive="cityActive"
+              @change_active="changeCityActive"
+              @change="changeCity"
+              :disabled="disabledCity" />
+    
     <span>直接搜索:</span>
-    <el-select
-      v-model="searchWord"
-      filterable
-      remote
-      reserve-keyword
-      placeholder="请输入关键词"
-      :remote-method="remoteMethod"
-      :loading="loading"
-    >
-      <el-option v-for="item in searchList" :key="item" :label="item" :value="item"></el-option>
+    <el-select v-model="searchWord"
+               filterable
+               remote
+               reserve-keyword
+               placeholder="请输入关键词"
+               :remote-method="remoteMethod"
+               :loading="loading">
+        <el-option v-for="item in searchList" 
+                   :key="item" 
+                   :label="item" 
+                   :value="item">
+        </el-option>
     </el-select>
   </div>
 </template>
@@ -79,9 +78,12 @@ export default {
         this.provinceActive = false;
       }
     },
+
+
     changeProvince(item) {
+        // console.log('======================>', item);
         this.province = item.name;
-        this.cityList = item.cityInfoList;
+        this.cityList = item.cityInfoList; // 赋值城市列表
         this.disabledCity = false;
     },
     changeCity(item) {
@@ -89,6 +91,7 @@ export default {
         this.$store.dispatch('setPosition', item);
         this.$router.push({name: 'index'})
     },
+
     remoteMethod(val) {
         console.log(val); // 拿到这个值发给后端就行了 后端返回我一个列表
         // 请求后端接口
@@ -98,7 +101,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "@/assets/css/changecity/iselect.scss";
+  @import "@/assets/css/changecity/iselect.scss";
 </style>
 
 
