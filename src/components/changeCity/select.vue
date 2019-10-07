@@ -41,28 +41,25 @@ export default {
         colList: function () {
             let col = Math.ceil(this.list.length / 12); // 多少列
             let result = [];
-            // console.log('================', this.list);
             for (var i = 0; i < col; i++) {
                 result.push(this.list.slice(i * 12, i * 12 + 12));
             }
-            console.log('===', result);
             return result;
         }
     },
     methods: {
-        showWrapper(e) {
+        showWrapper(e) { 
             if (this.disabled) {
                 return false;
             }
             e.stopPropagation(); // 阻止事件冒泡
-            // this.showWrapperActive = true;
             this.$emit('change_active', true);
         },
         documentClick() {
             this.$emit('change_active', false);
-            console.log('document-click');
+            // console.log('document-click');
         },
-        changeValue(item) {
+        changeValue(item) { // 传入点击的值
             this.$emit('change', item);
         }
     }

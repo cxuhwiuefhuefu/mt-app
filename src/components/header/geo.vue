@@ -42,8 +42,23 @@
 </template>
 
 <script>
+import api from '@/api/index.js'
 export default {
-
+    // data() {
+    //     return {
+    //         nearCity: [],
+    //     }
+    // },
+    // watch: {
+    //     $store.state.position: function() {
+    //         this.nearCity = $store.state.position.nearCity;
+    //     }
+    // },
+    created() {
+        api.getCurPoisition().then((res) => {
+            this.$store.dispatch('setPosition', res.data.data);   
+        })
+    },
 }
 </script>
 

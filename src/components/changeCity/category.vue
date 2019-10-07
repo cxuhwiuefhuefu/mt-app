@@ -41,7 +41,7 @@ export default {
             //         "firstChar": "b"
             //     }
             // ],
-            cityList: [],
+            // cityList: [],
             cityGroup: {},
         }
     },
@@ -55,14 +55,15 @@ export default {
                 }
                 obj[item.firstChar.toUpperCase()].push(item);
             });
-            console.log(obj)
+            // console.log(obj)
             this.cityGroup = obj;
         })
 
     },
     methods: {
         changeCity(city) {
-            this.$store.state.position = city;
+            // this.$store.state.position = city;
+            this.$store.commit('setPosition', city);
             this.$router.push({name: 'index'})
         }
     }

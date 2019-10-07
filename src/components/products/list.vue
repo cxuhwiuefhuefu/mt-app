@@ -13,7 +13,7 @@ import Item from './item.vue'
 import api from '@/api/index.js'
 export default {
   data() {
-    return {
+    return { // 为什么起这个结构？？？？？
       nav: [
         {
           key: "s-default",

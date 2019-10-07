@@ -52,6 +52,9 @@
     </div>
 </template>
 <script>
+
+// import axios from './axios'
+
 import api from '@/api/index.js'
 export default {
     data() {
@@ -70,6 +73,9 @@ export default {
                 this.suggestList = res.data.data;
             }
         })
+
+
+        // axios.get(); // 记得传Appkey
     },
     computed: {
         isHotPlace() {
@@ -97,6 +103,7 @@ export default {
         inputWord() {
             api.getSearchList().then((res) => {
                 if (res.data.status === 'success') {
+                    // 前端过滤
                     this.searchList = res.data.data.list.filter((item) => item.indexOf(this.searchWord) > -1);
                 }
             });

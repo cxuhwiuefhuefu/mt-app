@@ -50,31 +50,31 @@ import api from '@/api/index.js'
 export default {
   data() {
     return {
-      list: [
-        {
-          image: "",
-          title: "",
-          sub_title: "",
-          price_info: {
-            current_price: "",
-            old_price: "",
-            avg_price: "",
-            units: ""
-          },
-          rentNum: "",
-          address: ""
-        },
-        {
-          image: "",
-          title: "",
-          sub_title: "",
-          price_info: {
-            current_price: "",
-            old_price: ""
-          },
-          address: ""
-        }
-      ],
+      // list: [
+      //   {
+      //     image: "",
+      //     title: "",
+      //     sub_title: "",
+      //     price_info: {
+      //       current_price: "",
+      //       old_price: "",
+      //       avg_price: "",
+      //       units: ""
+      //     },
+      //     rentNum: "",
+      //     address: ""
+      //   },
+      //   {
+      //     image: "",
+      //     title: "",
+      //     sub_title: "",
+      //     price_info: {
+      //       current_price: "",
+      //       old_price: ""
+      //     },
+      //     address: ""
+      //   }
+      // ],
 
       kind: "all",
       list: {}

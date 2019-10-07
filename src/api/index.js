@@ -1,12 +1,14 @@
 import axios from '@/axios'
 
 const api = {
+  // 获取热门搜索
   getSearchHotList (params) {
     return axios.get('/meituan/header/searchHotWords.json', params)
   },
   getMenuList (params) {
     return axios.get('/meituan/index/nav.json', params)
   },
+  //
   getSearchList (params) {
     return axios.get('/meituan/header/search.json', params)
   },
@@ -39,4 +41,4 @@ const api = {
   }
 }
 
-export default api
+export default api;

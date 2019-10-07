@@ -34,7 +34,8 @@ export default {
     created() {
         api.getHotCity().then(res=> {
             if (res.data.status === 'success') {
-                 this.hotList = res.data.data.map((item) => item.name);
+                // 如果你不想改变页面的代码的话
+                this.hotList = res.data.data.map((item) => item.name);
             }
         });
         api.getRecentCity().then(res => {

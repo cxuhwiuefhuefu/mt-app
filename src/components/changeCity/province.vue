@@ -19,7 +19,7 @@
     
     <span>直接搜索:</span>
     <el-select v-model="searchWord"
-               filterable
+               filterable 
                remote
                reserve-keyword
                placeholder="请输入关键词"
@@ -43,8 +43,8 @@ export default {
       province: "省份",
       cityList: ["哈尔滨", "佳木斯", "牡丹江", "鹤岗"],
       city: "城市",
-      cityActive: false,
-      provinceActive: false,
+      cityActive: false, // 城市下拉框是否展示
+      provinceActive: false, // 省份下拉框是否展示
       searchList: ["哈尔滨", "佳木斯", "牡丹江", "鹤岗"],
       searchWord: '',
       loading: false,
@@ -81,18 +81,19 @@ export default {
 
 
     changeProvince(item) {
-        // console.log('======================>', item);
         this.province = item.name;
         this.cityList = item.cityInfoList; // 赋值城市列表
         this.disabledCity = false;
     },
     changeCity(item) {
+        console.log(item);
         this.city = item.name;
-        this.$store.dispatch('setPosition', item);
-        this.$router.push({name: 'index'})
+        this.$store.dispatch('setPosition', item); // 异步的把位置信息提交到公共仓库vuex
+        this.$router.push({name: 'index'});
     },
 
-    remoteMethod(val) {
+
+    remoteMethod(val) { // 输入值变化时候调用这个函数
         console.log(val); // 拿到这个值发给后端就行了 后端返回我一个列表
         // 请求后端接口
         console.log(document.cookie, localStorage)

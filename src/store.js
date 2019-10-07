@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+// vue使用vuex这个方法
 Vue.use(Vuex)
 
 const state = {
@@ -8,9 +9,10 @@ const state = {
   user: null
 }
 
+// 操作state里面的值
 const mutations = {
   setPosition (state, val) {
-    state.position = val
+    state.position = val;
   },
   setUser (state, val) {
     state.user = val
@@ -18,8 +20,8 @@ const mutations = {
 }
 
 const actions = {
-  setPosition ({ commit }, val) {
-    // 异步请求后端获取当前位置数据
+  setPosition ({ commit }, val) { // 解构赋值
+    // 异步请求后端获取当前位置数据 
     commit('setPosition', val)
   },
   setUser ({ commit }, val) {
@@ -32,3 +34,16 @@ export default new Vuex.Store({
   mutations,
   actions
 })
+
+
+
+
+// 模块化
+// const Position = {
+//   state: {
+
+//   },
+// }
+// const User = {
+
+// }
