@@ -8,11 +8,12 @@
                 <img src="//s0.meituan.net/bs/file/?f=fe-sso-fs:build/page/static/banner/www.jpg" width="480" height="370" alt="美团网">
             </div>
             <div class="form">
+                <h4 v-if="error" class="tips">{{error}}</h4>
                 <p>
                     <span>账号登录</span>
-                </p>
-                <el-input v-model="username" placeholder="手机号/用户名/邮箱" prefix-icon="profile"></el-input>
-                <el-input v-model="password" placeholder="手机号/用户名/邮箱" prefix-icon="password" type="password"></el-input>
+                </p>                                                            
+                <el-input :class="{error: error && !userName}" v-model="userName" placeholder="手机号/用户名/邮箱" prefix-icon="profile"></el-input>
+                <el-input :class="{error: error && !password}" v-model="password" placeholder="手机号/用户名/邮箱" prefix-icon="password" type="password"></el-input>
                 <div class="foot">
                     <router-link :to="{name: 'forget'}">忘记密码?</router-link>
                 </div>
@@ -27,7 +28,16 @@
                 </div>
             </div>
         </div>
-        <footer></footer>
+        <footer>
+            <ul>
+                <li><a href="#">关于美团</a></li>
+                <li><a href="#">关于美团</a></li>
+                <li><a href="#">关于美团</a></li>
+                <li><a href="#">关于美团</a></li>
+                <li><a href="#">关于美团</a></li>
+            </ul>
+            <p>1111111111111111111111111111111</p>
+        </footer>
     </div>
 </template>
 <script>
@@ -35,20 +45,33 @@ import api from '@/api/index.js'
 export default {
     data() {
         return {
-            username: '',
-            password: ''
+            userName: '',
+            password: '',
+            error: ""
         }
     },
     methods: {
         submit() {
+            if(!this.userName) {
+                this.error = '请输入账号';
+                return false;
+            }
+            if(!this.password) {
+                this.error = '请输入密码';
+                return false;
+            }
+
+
             api.login({
-                userName: this.username,
+                userName: this.userName,
                 password: this.password
             }).then(res => {
                 console.log(res);
                 if (res.data.status == 'success') {
-                    this.$store.dispatch('setUser', this.username);
+                    this.$store.dispatch('setUser', this.userName);
                     this.$router.push({name:'index'})
+                }else {
+                    this.error = res.data.msg;
                 }
             })
         }

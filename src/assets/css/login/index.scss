@@ -116,7 +116,11 @@
         }
 
       }
-
+      .error {
+        input {
+          border-color: red;
+        }
+      }
       .el-input__icon {
         &.profile {
           &:after {

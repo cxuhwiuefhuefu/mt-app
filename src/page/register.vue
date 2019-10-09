@@ -22,7 +22,15 @@
           <el-input type="text" v-model="registerForm.userName" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input type="password" v-model="registerForm.password" autocomplete="off"></el-input>
+          <el-input type="password" v-model="registerForm.password" autocomplete="off" @input="input"></el-input>
+          <div class="pw-strength">
+            <div :class="['bar', strengthClass]"></div>
+            <div class="letter">
+              <span>弱</span>
+              <span>中</span>
+              <span>强</span>
+            </div>
+          </div>
         </el-form-item>
         <el-form-item label="确认密码" prop="rePassword">
           <el-input type="password" v-model="registerForm.rePassword" autocomplete="off"></el-input>
@@ -90,7 +98,8 @@ export default {
         password: [{ validator: validatePass, trigger: "blur" }],
         rePassword: [{ validator: validatePass2, trigger: "blur" }],
         userName: [{ validator: checkUserName, trigger: "blur", type: "string" }]
-      }
+      },
+      strengthClass: ''
     };
   },
   methods: {
@@ -115,10 +124,28 @@ export default {
             return false;
           }
         });
+    },
+    input() {
+      var regStr = /(\w)+/g;
+      var regNum = /(\d)+/g;
+      var reg = /_/g;
+      var strongth = this.registerForm.password.match(reg) && this.registerForm.password.match(regStr) && this.registerForm.password.match(regNum);
+
+
+      console.log('xdwd_12'.match(reg));
+      if(this.registerForm.password.length > 20 && (this.registerForm.password.length > 6 && strongth)) {
+        this.strengthClass = 'strong';
+      }else if(this.registerForm.password.length < 6) {
+        this.strengthClass = 'week';
+      }else if(!this.registerForm.password) {
+        this.strengthClass = '';
+      }else {
+        this.strengthClass = 'normal';
+      }
     }
   }
 };
 </script>
 <style lang="scss">
-@import "@/assets/css/register/index.scss";
+  @import "@/assets/css/register/index.scss";
 </style>
