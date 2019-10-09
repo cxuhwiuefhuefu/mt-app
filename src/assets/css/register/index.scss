@@ -47,7 +47,33 @@
     min-height: 300px;
     padding-right: 550px;
     box-sizing: border-box;
-
+    .pw-strength{
+      position: relative;
+      width: 330px;
+      top: 10px;
+      left: 0px;
+      background: #eee;
+      .bar{
+        background: #d3ebee;
+        height: 20px;
+        width: 0;
+        overflow: hidden;
+        transition: all 0.4s linear;
+        &.week{
+          width: 108px;
+          background: #f76120;
+        }
+        &.normal{
+          width: 218px;
+          background: #ff8900;
+        }
+        &.strong{
+          width: 330px;
+          background: #5bab3ca;
+        }
+      }
+      
+    }
     .status {
       font-size: 12px;
       margin-left: 20px;
