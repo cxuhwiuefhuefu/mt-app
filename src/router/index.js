@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import defaultPage from '@/layout/default.vue'
+// 登录和注册页面共同模板
 import blankPage from '@/layout/blank.vue'
 
 import goodsList from '@/page/goodsList.vue'
